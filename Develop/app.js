@@ -77,7 +77,12 @@ const newEmployees = () => {
                         if (dataTwo.add === "yes") {
                             newEmployees();
                         } else {
-                            render(employees);
+                            fs.writeFile("team.html",render(employees), function(err){
+                                if(err){
+                                    return console.log(err);
+                                }
+                                console.log("Team written to team.html");
+                            });
                         }
                     });
             } else if (data.role === "Engineer") {
@@ -103,7 +108,12 @@ const newEmployees = () => {
                         if (dataTwo.add === "yes") {
                             newEmployees();
                         } else {
-                            render(employees);
+                            fs.writeFileSync("team.html",render(employees), function(err){
+                                if(err){
+                                    return console.log(err);
+                                }
+                                console.log("Team written to team.html")
+                            });
                         }
                     });
             } else {
@@ -129,7 +139,12 @@ const newEmployees = () => {
                         if (dataTwo.add === "yes") {
                             newEmployees();
                         } else {
-                            render(employees);
+                            fs.writeFileSync("team.html",render(employees), function(err){
+                                if(err){
+                                    return console.log(err);
+                                }
+                                console.log("Team written to team.html")
+                            });
                         }
                     });
             }
